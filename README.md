@@ -82,3 +82,10 @@ To use this code:
 ## Conclusion
 
 This documentation provides a detailed overview of the code used for finetuning and inference with different techniques. Follow the steps mentioned to train the model on your data and generate responses to your prompts.
+
+
+## Ref
+
+https://www.philschmid.de/instruction-tune-llama-2
+
+
