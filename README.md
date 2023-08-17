@@ -1,11 +1,11 @@
 
-# Documentation for Finetuning and Inference Code
+# LLama TL;DR
 
 ---
 
 ## Overview
 
-This code demonstrates the process of finetuning an existing pre-trained model (Llama-2-7b-hf) on a new dataset (`databricks-dolly-15k`) using three different approaches: Alpaca, Lora PEFT, and QLora PEFT. Post training, the script showcases how to perform inference using the trained model.
+This repo demonstrates the process of finetuning an existing pre-trained model (Llama-2-7b-hf) on a new dataset (`databricks-dolly-15k`) using three different approaches: Alpaca, Lora PEFT, and QLora PEFT. Post training, the script showcases how to perform inference using the trained model.
 
 ---
 
