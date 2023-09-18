@@ -49,7 +49,7 @@ from transformers import (
     default_data_collator,
     is_torch_tpu_available,
     set_seed,
-    TrainerCallback, 
+    TrainerCallback,
     TrainerState,
     TrainerControl,
 )
@@ -569,11 +569,11 @@ def main():
         peft_config = LoraConfig(
             task_type=TaskType.CAUSAL_LM,
             target_modules=target_modules,
-            inference_mode=False, 
-            r=lora_rank, lora_alpha=lora_alpha, 
+            inference_mode=False,
+            r=lora_rank, lora_alpha=lora_alpha,
             lora_dropout=lora_dropout,
             modules_to_save=modules_to_save)
-        
+
         if hasattr(model, "enable_input_require_grads"):
             model.enable_input_require_grads()
         else:

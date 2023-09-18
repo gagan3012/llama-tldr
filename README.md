@@ -20,7 +20,7 @@ Before running the code, ensure you have the necessary packages installed. You c
 ### 1. Alpaca Format
 
 1. **Loading Dataset**: The dataset `databricks/dolly-15k` is loaded using the `datasets` library.
-   
+
 2. **Formatting**: The samples in the dataset are formatted to include instructions, context (if available), and the response. The purpose of the formatting is to make the data more consistent and user-friendly for the model training process.
 
 3. **Model & Tokenizer Initialization**: The pre-trained model and its corresponding tokenizer are loaded. The padding token and side are adjusted to suit the model's requirements.
@@ -87,5 +87,3 @@ This documentation provides a detailed overview of the code used for finetuning 
 ## Ref
 
 https://www.philschmid.de/instruction-tune-llama-2
-
-
