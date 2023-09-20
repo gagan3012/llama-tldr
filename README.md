@@ -29,6 +29,15 @@ Before running the code, ensure you have the necessary packages installed. You c
 
 5. **Training**: The model is trained using the `SFTTrainer` class.
 
+6. **Model Saving**: The trained model is saved to the specified path.
+
+``` bash
+cd llama-tldr/training/instruction-ft/
+
+python3 train.py
+```
+
+
 ### 2. Lora PEFT
 
 This section is similar to the Alpaca format, with additional steps to integrate the PEFT (Parameter Efficient Fine-Tuning) technique using LoRA (Low Rank Adaptation).
@@ -43,6 +52,12 @@ This section is similar to the Alpaca format, with additional steps to integrate
 
 4. **Model Merging & Saving**: Post training, the LoRA layers and the base model are merged into a single model and then saved.
 
+``` bash
+cd llama-tldr/training/ft-lora/
+
+python3 train.py
+```
+
 ### 3. QLora PEFT
 
 This section extends the Lora PEFT approach by incorporating quantization techniques (using 4-bit integers) to reduce the model's memory footprint.
@@ -50,6 +65,12 @@ This section extends the Lora PEFT approach by incorporating quantization techni
 1. **Model Quantization**: The model is prepared for 4-bit quantization using the `BitsAndBytesConfig`.
 
 2. **Training & Model Saving**: The training and model saving steps are similar to the Lora PEFT section but tailored for the quantized model.
+
+```
+cd llama-tldr/training/qlora/
+
+python3 train.py
+```
 
 ### 4. Inference
 
