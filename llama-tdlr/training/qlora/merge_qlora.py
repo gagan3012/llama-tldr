@@ -176,25 +176,27 @@ def merge_lora(model_path, adapter_path, lora_method):
 
             model = AutoModelForCausalLM.from_pretrained(
                 model_path,
-                load_in_4bit=True,
                 torch_dtype=torch.bfloat16,
-                quantization_config=quantization_config,
-                device_map={"": 0}
+                device_map="auto"
             )
             print(model)
             tok = LlamaTokenizer.from_pretrained(model_path)
 
             # Note: This function outputs the dequantized model without merging the adapter yet
             # The code below it will merge the adapter and then save it to disk
-            model = dequantize_model(
-                model, tok, to=f"{save_dir}-dq", dtype=torch.bfloat16, device="cuda")
+            # model = dequantize_model(
+            #     model, tok, to=f"{save_dir}-dq", dtype=torch.bfloat16, device="cuda")
 
             print(model)
 
             loras = glob(f"{adapter_path}/*")
 
+            model = PeftModel.from_pretrained(model=model, model_id=loras[0])
+
             for lora in loras:
                 model.load_adapter(lora, adapter_name=lora.split("/")[-1])
+
+            print(model)
 
             unique_name = str(hash(datetime.datetime.now()))
             expert_alphas = [1.0 for _ in range(len(loras))]
@@ -240,6 +242,8 @@ def merge_lora(model_path, adapter_path, lora_method):
         tok = LlamaTokenizer.from_pretrained(model_path)
 
         loras = glob(f"{adapter_path}/*")
+
+        model = PeftModel.from_pretrained(model=model, model_id=loras[0])
 
         for lora in loras:
             model.load_adapter(lora, adapter_name=lora.split("/")[-1])
