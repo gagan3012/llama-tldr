@@ -1,5 +1,5 @@
 """
-The code below combines approaches published by both @eugene-yh and @jinyongyoo on Github. 
+The code below combines approaches published by both @eugene-yh and @jinyongyoo on Github.
 Thanks for the contributions guys!
 """
 
@@ -225,7 +225,7 @@ def merge_lora(model_path, adapter_path, lora_method):
             # Run the garbage collection
             gc.collect()
 
-            print("Model, GPU cache, and garbage have been cleared.") 
+            print("Model, GPU cache, and garbage have been cleared.")
 
     elif lora_method == "multiple_loras":
 
